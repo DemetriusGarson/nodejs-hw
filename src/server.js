@@ -21,10 +21,6 @@ app.get('/', (req, res) => {
 
 app.use(notesRoutes);
 
-// app.get('/test-error', (req, res) => {
-//   throw new Error('Simulated server error');
-// });
-
 app.use(notFoundHandler);
 
 app.use(errorHandler);
