@@ -6,7 +6,7 @@ export const logger = pino({
     target: 'pino-pretty',
     options: {
       colorize: true,
-      translateTime: 'HH:MM:ss',
+      translateTime: 'SYS:HH:MM:ss',
       timezone: 'Europe/Kyiv',
       ignore: 'pid,hostname',
       messageFormat:

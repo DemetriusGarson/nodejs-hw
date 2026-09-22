@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 
 export const noteSchema = new Schema(
   {
-    tittle: {
+    title: {
       type: String,
       required: true,
       trim: true,
@@ -13,6 +13,7 @@ export const noteSchema = new Schema(
       default: '',
     },
     tag: {
+      type: String,
       enum: [
         'Work',
         'Personal',

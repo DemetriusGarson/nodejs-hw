@@ -6,6 +6,7 @@ import { connectMongoDB } from './db/connectMongoDB.js';
 import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
+import notesRoutes from './routes/notesRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -18,16 +19,7 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: 'NODE.js HomeWork#2!' });
 });
 
-app.get('/notes', (req, res) => {
-  res.status(200).json({
-    message: 'Retrieved all notes',
-  });
-});
-
-app.get('/notes/:noteId', (req, res) => {
-  const { noteId: id_param } = req.params;
-  res.status(200).json({ message: `Retrieved note with ID: ${id_param}` });
-});
+app.use(notesRoutes);
 
 // app.get('/test-error', (req, res) => {
 //   throw new Error('Simulated server error');
