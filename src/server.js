@@ -7,6 +7,7 @@ import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import notesRoutes from './routes/notesRoutes.js';
+import { errors } from 'celebrate';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -16,12 +17,14 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-  res.status(200).json({ message: 'NODE.js HomeWork#2!' });
+  res.status(200).json({ message: 'NODE.js HomeWork#03-validation' });
 });
 
 app.use(notesRoutes);
 
 app.use(notFoundHandler);
+
+app.use(errors());
 
 app.use(errorHandler);
 
