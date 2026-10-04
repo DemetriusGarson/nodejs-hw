@@ -21,7 +21,7 @@ app.use(cors());
 app.use(cookieParser());
 
 app.get('/', (req, res) => {
-  res.status(200).json({ message: 'NODE.js HomeWork#04-auth' });
+  res.status(200).json({ message: 'NODE.js HomeWork#05-mail-and-img' });
 });
 
 app.use(authRoutes);
